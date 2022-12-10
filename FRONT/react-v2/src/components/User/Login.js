@@ -2,7 +2,7 @@ import React from 'react'
 
 function Login() {
   return (
-  <div className="col-md-6 mx-auto">
+  <div className="col-md-6 mx-auto p-4">
       <form>
         <h3 className='display1 mb-3 text-left'>Sign In</h3>
         <div className="mb-3">
@@ -33,7 +33,7 @@ function Login() {
             </label>
           </div>
         </div>
-        <div className="d-grid">
+        <div className="d-grid p-4">
           <button type="submit" className="btn btn-primary">
             Iniciar sesión
           </button>
