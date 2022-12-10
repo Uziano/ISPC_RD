@@ -1,7 +1,5 @@
-Proyecto Final Instituto Politécnico
+Proyecto Final Instituto Politécnico de Cordoba
 Consta de una App full stack con back y front.
-Back --> Django para manejo de Usuarios y SQL
-Front --> React para mejor uso de componentes 
+Back --> Django para manejo de Usuarios, Datos y mySQL
+Front --> React para modularizacion de componentes
 
-
-Instalé bootstrap 5 en el front y me da conflicto pq parece que don react tiene su propia version para eso...
