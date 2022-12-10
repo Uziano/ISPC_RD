@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login';
+import Login from './components/User/Login'
 import CardB5 from './components/CardB5'
 
 function App() {
