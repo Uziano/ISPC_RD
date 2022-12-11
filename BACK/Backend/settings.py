@@ -40,6 +40,7 @@ BASE_APPS = [
 ]
 LOCAL_APPS = [
     'usuario',
+    'notas',
     
 ]
 
