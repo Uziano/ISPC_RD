@@ -14,7 +14,7 @@ class UserApiView(APIView):
     def get(self, request):
         """Devuleve un listado con todos los usuarios almacenados en la Base de Datos"""
 
-        usuarios = User.objects.all().values('id', 'username', 'email', 'password')
+        usuarios = User.objects.all().values('id', 'username', 'mail')
         usuarios_serializer = UserListSerializer(usuarios, many=True)
 
         return Response(

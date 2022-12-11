@@ -20,5 +20,4 @@ class UserListSerializer(serializers.ModelSerializer):
             'id': instance['id'],
             'username': instance['username'],
             'mail': instance['mail'],
-            'password': instance['password']
         }
