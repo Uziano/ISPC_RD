@@ -7,7 +7,7 @@ from rest_framework import status
 from usuario.models import User
 
 # Serializaers imports
-from usuario.serializer import UserSerializer, UserListSerializer
+from usuario.api.serializer import UserSerializer, UserListSerializer
 
 # Create your views here
 class UserApiView(APIView):
