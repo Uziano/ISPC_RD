@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager
+from django.contrib.auth.models import BaseUserManager,PermissionsMixin
 
 # Create your models here.
 class UserManager(BaseUserManager):
@@ -7,6 +7,7 @@ class UserManager(BaseUserManager):
     def _create_user(self, username, mail, password, is_staff, is_superuser, **extra_fields):
         if not mail:
             raise ValueError('El usuario debe tener un correo electronico')
+        # Elementos que un usuario debe tener si o si
         user = self.model(
             username = username,
             mail = mail,
@@ -18,14 +19,13 @@ class UserManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-    def create_user(self, username, mail, password=None, **extra_fields):
+    def create_user(self, username, mail, password, **extra_fields):
         return self._create_user(username, mail, password, False, False, **extra_fields)
 
-    def create_superuser(self, username, mail, password=None, **extra_fields):
+    def create_superuser(self, username, mail, password, **extra_fields):
         return self._create_user(username, mail, password, True, True, **extra_fields)
        
-    
-# models.Model porque sobreescribe la clase Model
+
 class User(models.Model):
     
     # Atributos
@@ -35,12 +35,20 @@ class User(models.Model):
         verbose_name='Correo Electrónico')
  
     username = models.CharField(
-        'Usuario',
+        verbose_name='Usuario',
         max_length = 32,
         unique = True,)
     
+    password = models.CharField(
+        verbose_name='Contraseña',
+        max_length = 32,
+        null=False,
+        blank = False,
+        default=''
+    )
+    
     image = models.ImageField(
-        'Imagen de perfil', 
+        verbose_name='Imagen de perfil', 
         upload_to='perfil/', 
         max_length=255, 
         null=True, 
@@ -58,7 +66,9 @@ class User(models.Model):
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
 
-    USERNAME_FIELD = 'username'
+    # Utilizamos el email para loguearnos
+    USERNAME_FIELD = 'mail'
+    
     REQUIRED_FIELDS = ['mail','username','password']
     
     def __str__(self):

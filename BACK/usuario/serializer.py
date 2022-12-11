@@ -9,6 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+
         
 class UserListSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,4 +21,5 @@ class UserListSerializer(serializers.ModelSerializer):
             'id': instance['id'],
             'username': instance['username'],
             'mail': instance['mail'],
+            'password': instance['password'],
         }
