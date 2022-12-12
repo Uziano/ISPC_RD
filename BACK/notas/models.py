@@ -27,10 +27,10 @@ class Notes(models.Model):
         return self._create_note(title, description, current_state, deadline, **extra_fields)
 
     #Atributos
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
-        default=''   
+        null=True,
+        on_delete=models.CASCADE
     )
     title = models.CharField(
         'Titulo Nota',
