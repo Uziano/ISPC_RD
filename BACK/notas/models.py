@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
 # Import Models
 from usuario.models import User
@@ -39,7 +38,7 @@ class Notes(models.Model):
     )
     description = models.CharField(
         'Descripción',
-        max_length = 40, 
+        max_length = 250, 
         unique = False,
     )
     current_state = models.CharField(

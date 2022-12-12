@@ -4,12 +4,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
   
-
-        
-function OffcanvasExample() {
+export default function NavBar() {
     return (
     <>
-        {['xxl'].map((expand) => (
+        
         <Navbar  variant="dark"  className="navBg">
             <Container fluid>
             <Navbar.Brand href="#">NOTAS</Navbar.Brand>
@@ -28,17 +26,16 @@ function OffcanvasExample() {
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                     <Nav.Link href="#action1">Inicio</Nav.Link>
                     <Nav.Link href="#action2">Agregar notas</Nav.Link>
-                    <Nav.Link href="#action2">Listar notas</Nav.Link>
+                    <Nav.Link href="#action3">Listar notas</Nav.Link>
                 </Nav>
                 </Offcanvas.Body>
             </Navbar.Offcanvas>
             </Container>
         </Navbar>
-        ))}
+       
     </>
     );
 }
 
 
 
-export default OffcanvasExample;
