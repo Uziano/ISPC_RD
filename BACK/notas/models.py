@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
+# Import Models
+from usuario.models import User
+
 # Create your models here.
 class Notes(models.Model):
     ESTADOS_TAREA = (
@@ -24,6 +27,11 @@ class Notes(models.Model):
         return self._create_note(title, description, current_state, deadline, **extra_fields)
 
     #Atributos
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        default=''   
+    )
     title = models.CharField(
         'Titulo Nota',
         max_length = 20, 
