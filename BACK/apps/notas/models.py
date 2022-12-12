@@ -28,7 +28,8 @@ class Notes(models.Model):
     #Atributos
     user = models.ForeignKey(
         User,
-        null=True,
+        default=1,
+        # null=True,
         on_delete=models.CASCADE
     )
     title = models.CharField(
@@ -46,8 +47,12 @@ class Notes(models.Model):
         max_length=1,
         choices=ESTADOS_TAREA
     )
-    deadline = models.DateTimeField(
+    beginning = models.DateTimeField(
+        'Fecha de inicio',
+        auto_now=True,
+    )
+    deadline = models.DateField(
         'Fecha de finalización',
         auto_now=False,
-        auto_now_add=True
+        auto_now_add=False
     )
