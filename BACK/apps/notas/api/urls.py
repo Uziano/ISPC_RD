@@ -2,7 +2,7 @@
 from django.urls import path
 
 # Views
-from notas.api.views import NotesApiView, NotesDetailApiView
+from apps.notas.api.views import NotesApiView, NotesDetailApiView
 
 # Urls
 urlpatterns = [

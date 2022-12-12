@@ -1,7 +1,7 @@
 from django.db import models
 
 # Import Models
-from usuario.models import User
+from apps.usuario.models import User
 
 # Create your models here.
 class Notes(models.Model):

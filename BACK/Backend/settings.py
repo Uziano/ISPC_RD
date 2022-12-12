@@ -39,8 +39,8 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 LOCAL_APPS = [
-    'usuario',
-    'notas',
+    'apps.usuario',
+    'apps.notas',
     
 ]
 

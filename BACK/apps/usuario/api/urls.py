@@ -2,7 +2,7 @@
 from django.urls import path
 
 # Views
-from usuario.api.views import UserApiView, UserDetailApiView
+from apps.usuario.api.views import UserApiView, UserDetailApiView
 
 # Urls
 urlpatterns = [

@@ -4,10 +4,10 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Models imports
-from usuario.models import User
+from apps.usuario.models import User
 
 # Serializaers imports
-from usuario.api.serializer import UserSerializer, UserListSerializer
+from apps.usuario.api.serializer import UserSerializer, UserListSerializer
 
 # Create your views here
 class UserApiView(APIView):

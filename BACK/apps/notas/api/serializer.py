@@ -1,6 +1,6 @@
 #Rest imports 
 from rest_framework import serializers
-from notas.models import Notes
+from apps.notas.models import Notes
 
 class NoteSerializer(serializers.ModelSerializer):
     class Meta: 

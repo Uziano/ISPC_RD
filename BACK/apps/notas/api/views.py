@@ -3,9 +3,9 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Create your views here.
-from notas.models import Notes
+from apps.notas.models import Notes
 
-from notas.api.serializer import NoteListSerializer, NoteSerializer
+from apps.notas.api.serializer import NoteListSerializer, NoteSerializer
 
 class NotesApiView(APIView):
     def get(self, request):
