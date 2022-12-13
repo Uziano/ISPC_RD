@@ -5,6 +5,10 @@ import Form from "react-bootstrap/Form";
 
 //Toma los datos de los campos para crear la nota
 export default function NotasForm() {
+
+  //Manejar estados del form con useState y useEffect
+  // para enviar la info al back y crear otra nota
+
   return (
     <>
       <div

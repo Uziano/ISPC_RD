@@ -1,7 +1,8 @@
 import './App.css';
-//import Home from './components/User/Home';
-import NavBar from './components/Navbar/navbar'
-import Inicio from './components/AboutUs.js/inicio';
+import NavBar from './components/Navbar/NavBar'
+import Inicio from './components/AboutUs/Inicio';
+import Home from './components/User/Home';
+import NotasForm from './components/Notas/NotasForm';
 //import AboutUs from './components/AboutUs.js/aboutUs';
 
 
@@ -10,6 +11,8 @@ function App() {
     <>
       <NavBar />
       <Inicio />
+      <NotasForm />
+      {/* <Home /> */}
       {/*<AboutUs />*/}
     </>
   );
