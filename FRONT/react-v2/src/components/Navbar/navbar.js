@@ -10,7 +10,16 @@ export default function NavBar() {
         
         <Navbar  variant="dark"  className="navBg">
             <Container fluid>
-            <Navbar.Brand href="#">NOTAS</Navbar.Brand>
+            <Navbar.Brand href="#home">
+                <img
+                alt=""
+                src={require('../../assets/logo.png')}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                />{' '}
+                Notas
+          </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-`} />
             <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-`}
@@ -25,8 +34,9 @@ export default function NavBar() {
                 <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                     <Nav.Link href="#action1">Inicio</Nav.Link>
-                    <Nav.Link href="#action2">Agregar notas</Nav.Link>
-                    <Nav.Link href="#action3">Listar notas</Nav.Link>
+                    <Nav.Link href="#action2">Nosotros</Nav.Link>
+                    <Nav.Link href="#action3">Agregar notas</Nav.Link>
+                    <Nav.Link href="#action4">Listar notas</Nav.Link>
                 </Nav>
                 </Offcanvas.Body>
             </Navbar.Offcanvas>

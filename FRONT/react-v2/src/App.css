@@ -37,6 +37,11 @@
   }
 }
 
+
 .navBg{
-  background-color: #7952b3;
+  background-color: black ;
+}
+
+.btn{
+  background-color: black;
 }
