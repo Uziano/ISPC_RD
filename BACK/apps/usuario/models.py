@@ -1,13 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager,PermissionsMixin
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
-# Create your models here.
-class UserManager(BaseUserManager):
-    #Constructor
+
+class UserManager(BaseUserManager):     
     def _create_user(self, username, mail, password, is_staff, is_superuser, **extra_fields):
-        if not mail:
-            raise ValueError('El usuario debe tener un correo electronico')
-        # Elementos que un usuario debe tener si o si
         user = self.model(
             username = username,
             mail = mail,
@@ -19,15 +15,14 @@ class UserManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-    def create_user(self, username, mail, password, **extra_fields):
-        return self._create_user(username, mail, password, False, False, **extra_fields)
+    def create_user(self, username, mail, password=None, **extra_fields):
+        return self._create_user(username, mail, password,False, False, **extra_fields)
 
-    def create_superuser(self, username, mail, password, **extra_fields):
+    def create_superuser(self, username, mail,  password=None, **extra_fields):
         return self._create_user(username, mail, password, True, True, **extra_fields)
-       
 
-class User(models.Model):
-    
+
+class User(AbstractBaseUser, PermissionsMixin):
     # Atributos
     mail = models.EmailField(
         max_length = 64, 
@@ -38,15 +33,7 @@ class User(models.Model):
         verbose_name='Usuario',
         max_length = 32,
         unique = True,)
-    
-    password = models.CharField(
-        verbose_name='Contraseña',
-        max_length = 32,
-        null=False,
-        blank = False,
-        default=''
-    )
-    
+       
     image = models.ImageField(
         verbose_name='Imagen de perfil', 
         upload_to='perfil/', 
@@ -66,12 +53,23 @@ class User(models.Model):
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
 
-    # Utilizamos el email para loguearnos
-    USERNAME_FIELD = 'mail'
-    
-    REQUIRED_FIELDS = ['mail','username','password']
-    
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['mail']
+
     def __str__(self):
         return f'{self.username}'
+    
+    def has_perm(self, perm,obj = None):
+        return True
+    
+    def has_module_perms(self, app_label):
+        return True
+    
+    @property 
+    def is_staff(self):
+        return self.is_staff
+
+
+
 
 
