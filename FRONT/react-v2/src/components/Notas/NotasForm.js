@@ -1,59 +1,60 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Form from 'react-bootstrap/Form';
-
+import Form from "react-bootstrap/Form";
 
 //Toma los datos de los campos para crear la nota
 export default function NotasForm() {
   return (
     <>
-      <div>
-        <form>
-          <h1>Nueva Nota</h1>
-          <input placeholder="Titulo de la Nota"></input>
-          <input placeholder="Fecha"></input>
-          <textarea placeholder="Descripcion de la nota"></textarea>
-          <button>Guardar Nota</button>
-        </form>
-      </div>
-
       <div
         className="modal show"
         style={{ display: "block", position: "initial" }}
       >
         <Modal.Dialog>
           <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
+            <Modal.Title>Nueva Nota</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <p>Modal body text goes here.</p>
             <Form>
+              {/* Título */}
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label>Titulo de la nota</Form.Label>
+                <Form.Control type="email" placeholder="Pasear a mi gato 🐈" />
                 <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
+                  Tip: Usa un nombre claro para cada nota
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+              {/* Descripción */}
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Descripción</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Hoy se portó bien el nene 🐈"
+                />
+                <Form.Text className="text-muted">
+                  Tip: Se conciso para una mayor claridad al leerla
+                </Form.Text>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
+
+              {/* Fecha */}
+              {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Fechas</Form.Label>
+                <Form.Control type="email" placeholder="Pasear a mi gato 🐈" />
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  label="Incluir fecha de hoy"
+                />
+              </Form.Group> */}
             </Form>
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button variant="primary">Save changes</Button>
+            <Button variant="secondary">Cancelar</Button>
+            <Button variant="primary">Guardar 📚</Button>
           </Modal.Footer>
         </Modal.Dialog>
       </div>

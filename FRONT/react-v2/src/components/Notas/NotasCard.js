@@ -1,22 +1,23 @@
-
+import React from 'react';
 //Este es la tarjeta NOTA 
+// import notas from '../../data/notasMock'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function NotasCard() {
+function NotasCard({title, description}) {
+  // console.log(props)
   return (
-    <Card style={{ width: '18rem' }}>
-      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+    <div>
+      <Card style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+        <Button variant="primary">Done</Button>
       </Card.Body>
     </Card>
+    </div>
   );
 }
 
+{/* <Card.Img variant="top" src="holder.js/100px180" /> */}
 export default NotasCard;
