@@ -42,10 +42,8 @@
   background-color: black ;
 }
 
-/* .btn123{
+.btn123{
   background-color: black;
-} */
-
-.bi{
-  background-color: black;
-}
+  color:white;
+  border-radius:10px;
+} 
