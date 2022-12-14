@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
         
     def create(self, validated_data):
         """
-        Correción la encriptacion de la password al crear un usuario.
+        Se encripta la password al crear un usuario.
         """
         user = User(**validated_data)
         user.set_password(validated_data['password'])
@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         """
-        Correción la encriptacion de la password al editar un usuario.
+        Se encripta la password al editar un usuario.
         """
         update_user = super().update(instance, validated_data)
         update_user.set_password(validated_data['password'])
