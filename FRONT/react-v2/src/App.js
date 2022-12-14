@@ -1,7 +1,7 @@
 import './App.css';
-import NavBar from './components/Navbar/Navbar'
+import NavBar from './components/Navbar/NavBar'
 import Inicio from './components/AboutUs/Inicio';
-//import Home from './components/User/Home';
+import Home from './components/User/Home';
 //import NotasForm from './components/Notas/NotasForm';
 //import Login from './components/User/Login';
 //import LoginRegistro from './components/User/LoginRegistro';
@@ -17,9 +17,9 @@ function App() {
       {/*<Login />*/}
       {/*<LoginRegistro />*/}
       {/*<NotasForm /> */}
-      {/*<Home /> */}
-      <AboutUs />
-      <Footer />
+      <Home />
+      {/* <AboutUs /> */}
+      {/* <Footer /> */}
 
     </>
   );

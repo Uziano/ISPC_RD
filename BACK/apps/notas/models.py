@@ -56,3 +56,9 @@ class Notes(models.Model):
         auto_now=False,
         auto_now_add=False
     )
+
+class Meta:
+        verbose_name = 'Nota'
+        verbose_name_plural = 'Notas'
+def __str__(self):
+        return f'{self.title}'
