@@ -28,8 +28,8 @@ class Notes(models.Model):
     #Atributos
     user = models.ForeignKey(
         User,
-        default=1,
-        # null=True,
+        default="",
+        null=False,
         on_delete=models.CASCADE
     )
     title = models.CharField(

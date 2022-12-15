@@ -18,6 +18,8 @@ class NoteListSerializer(serializers.ModelSerializer):
             'id': instance['id'],
             'title': instance['title'],
             'description': instance['description'],
+            'current_state': instance['current_state'],
+            'beginning': instance['beginning'],
             'deadline': instance['deadline'],
             'user': instance['user'],
         }
