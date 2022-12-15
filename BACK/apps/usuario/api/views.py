@@ -2,6 +2,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from django.contrib.auth import authenticate
 
 # Models imports
 from apps.usuario.models import User
@@ -83,23 +84,25 @@ class UserDetailApiView(APIView):
         )
 
 class LoginApiView(APIView):
-    def get(self,request,mail,password):   
-
-        try:
-            usuarios = User.objects.filter(mail = mail, password = password).get()
-            usuarios_serializer = UserSerializer(usuarios)
-
-            return Response(
-                data = usuarios_serializer.data,
-                status = status.HTTP_200_OK )     
-
-        except:
-            data = {
-                "message":"Mail o contraseña incorrecta",
-                "status":""
-            }
+    def post(self,request,username,password):   
+        
+            usuarios = authenticate(request=request, username=username, password=password)
+            print(usuarios)
             
-            return Response(
-                data = data,
-                status=status.HTTP_400_BAD_REQUEST
-            )
+                
+            if usuarios is not None:
+                usuarios_serializer = UserSerializer(usuarios)
+                
+                return Response(
+                    data = usuarios_serializer.data,
+                    status = status.HTTP_200_OK )  
+
+            else:
+                    data = {
+                        "message":"Mail o contraseña incorrecta",
+                    }
+                    
+                    return Response(
+                        data = data,
+                        status=status.HTTP_400_BAD_REQUEST
+                    )

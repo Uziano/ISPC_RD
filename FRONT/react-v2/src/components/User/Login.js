@@ -1,13 +1,13 @@
 // DEPENDENCIAS
 import React, { useState } from "react";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // COMPONENTES
-import {conectUsuario} from '../../server/LoginServer';
+import { conectUsuario } from "../../server/LoginServer";
 
 const Login = () => {
   const history = useNavigate();
-  const initialState = { mail: "", password: "" };
+  const initialState = { username: "", password: "" };
 
   // Hooks
   const [ingreso, setIngreso] = useState(initialState);
@@ -18,39 +18,38 @@ const Login = () => {
     console.log(ingreso);
   };
 
-
   // ENVIO DEL FORMULARIO QUE LA DECLARAMOS EN EL onSubmit DEL
   //FORM que enviara el usuario al servidor para grabarlo en la base de datos
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      let res = await conectUsuario(usuario);
+      let res = await conectUsuario(ingreso);
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data.id) {
-          history(`/notas/${data.id}/`);
+        history(`/notas/${data.id}/`);
       } else {
-          alert("Acesso denegado");
+        alert("Acesso denegado");
       }
-  } catch (error) {
+    } catch (error) {
       console.log(error);
-  }
+    }
   };
 
   return (
     <div className="col-md-6 mx-auto p-4">
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form onSubmit={handleSubmit}>
         <h3 className="display1 mb-3 text-left">Sign In</h3>
         <div className="mb-3">
-          <label>Correo</label>
+          <label>Usuario</label>
           <input
             type="text"
             className="form-control"
-            name="mail"
-            id="mail"
-            placeholder="Correo"
-            value={ingreso.mail}
+            name="username"
+            id="username"
+            placeholder="Usuario"
+            value={ingreso.username}
             onChange={handleInputChange}
             required="required"
           />
@@ -73,7 +72,7 @@ const Login = () => {
             Iniciar sesión
           </button>
           <hr></hr>
-          <Nav.Link href="/registrarse">Soy Nuevo... Registrame!</Nav.Link>
+          {/* <Nav.Link href="/registrarse">Soy Nuevo... Registrame!</Nav.Link> */}
         </div>
       </form>
     </div>

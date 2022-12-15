@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from "react-bootstrap/Nav";
 
 function LoginRegistro() {
   return (
@@ -46,8 +45,6 @@ function LoginRegistro() {
           <button type="submit" className="btn btn-primary">
             Registrarse
           </button>
-          <hr></hr>
-          <Nav.Link href="/login">Nononono quiero logguearme!</Nav.Link>
         </div>
       </form>
     </div>
