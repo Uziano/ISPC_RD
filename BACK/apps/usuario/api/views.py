@@ -81,3 +81,23 @@ class UserDetailApiView(APIView):
             {'message': 'Usuario eliminado correctamente'},
             status=status.HTTP_200_OK
         )
+
+class Login(APIView):
+    def get(self,request,mail,password):        
+        try:
+            user = User.objects.get(mail = mail, password = password)
+        except:
+            data = {
+                "message":"Mail o contraseña incorrecta"
+            }
+            
+            return Response(
+                data = data,
+                status=status.HTTP_404_NOT_FOUND
+            )
+            
+        user_serializer = UserSerializer(user)
+        return Response (
+            data = user_serializer.data,
+            status=status.HTTP_200_OK
+        )
