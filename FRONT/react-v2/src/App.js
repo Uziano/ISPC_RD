@@ -3,7 +3,7 @@ import NavBar from './components/Navbar/NavBar'
 import Inicio from './components/AboutUs/Inicio';
 import Home from './components/User/Home';
 //import NotasForm from './components/Notas/NotasForm';
-//import Login from './components/User/Login';
+import Login from './components/User/Login';
 //import LoginRegistro from './components/User/LoginRegistro';
 import AboutUs from './components/AboutUs/AboutUs';
 import Footer from './components/Footer/Footer';
@@ -14,10 +14,10 @@ function App() {
     <>
       <NavBar />
       {/*<Inicio />*/}
-      {/*<Login />*/}
+      <Login />
       {/*<LoginRegistro />*/}
       {/*<NotasForm /> */}
-      <Home />
+      {/*<Home />*/}
       {/* <AboutUs /> */}
       {/* <Footer /> */}
 
