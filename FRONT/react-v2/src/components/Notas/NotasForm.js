@@ -9,6 +9,11 @@ export default function NotasForm() {
   //Manejar estados del form con useState y useEffect
   // para enviar la info al back y crear otra nota
 
+  
+
+
+
+
   return (
     <>
       <div
