@@ -11,8 +11,7 @@ export const addNote = async (newNote) => {
     headers: {
       "Content-Type": "application/json",
     },
-    mode: "no-cors", //
-    // headers: [],
+    mode: "no-cors", 
     body: JSON.stringify({
       user: Number(newNote.user),
       title: String(newNote.title).trim(),
