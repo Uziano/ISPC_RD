@@ -9,7 +9,7 @@ from apps.notas.api.serializer import NoteListSerializer, NoteSerializer
 
 class NotesApiView(APIView):
     def get(self, request):
-        note = Notes.objects.all().values('id', 'title', 'description', 'deadline')
+        note = Notes.objects.all().values('id', 'title', 'description', 'beginning' , 'deadline', 'current_state' ,'user')
         notes_serializer = NoteListSerializer(note, many=True)
 
         return Response(
