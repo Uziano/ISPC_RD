@@ -6,7 +6,7 @@ function Home() {
   return (  
     <>
       {/* <NotasForm /> */}
-      <NotasList />
+      {/* <NotasList /> */}
       <NotasView />
     </>
 )
