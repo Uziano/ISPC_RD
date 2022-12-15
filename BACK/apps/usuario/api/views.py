@@ -82,10 +82,17 @@ class UserDetailApiView(APIView):
             status=status.HTTP_200_OK
         )
 
-class Login(APIView):
-    def get(self,request,mail,password):        
+class LoginApiView(APIView):
+    def get(self,request,mail,password):   
+
         try:
-            user = User.objects.filter(mail = mail, password = password).get()
+            usuarios = User.objects.filter(mail = mail, password = password).get()
+            usuarios_serializer = UserSerializer(usuarios)
+
+            return Response(
+                data = usuarios_serializer.data,
+                status = status.HTTP_200_OK )     
+
         except:
             data = {
                 "message":"Mail o contraseña incorrecta",
@@ -96,9 +103,3 @@ class Login(APIView):
                 data = data,
                 status=status.HTTP_400_BAD_REQUEST
             )
-            
-        user_serializer = UserSerializer(user)
-        return Response (
-            data = user_serializer.data,
-            status=status.HTTP_200_OK
-        )

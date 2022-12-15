@@ -1,32 +1,23 @@
 // DEPENDENCIAS
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate} from "react-router-dom";
 
 // COMPONENTES
-import * as LoginServer from "../../server/LoginServer";
+import {conectUsuario} from '../../server/LoginServer';
 
 const Login = () => {
   const history = useNavigate();
-  const params = useParams();
   const initialState = { mail: "", password: "" };
 
   // Hooks
   const [ingreso, setIngreso] = useState(initialState);
 
   const handleInputChange = (e) => {
-    // console.log(e.target.name);
-    // console.log(e.target.value);
     setIngreso({ ...ingreso, [e.target.name]: e.target.value });
     //Muestra los valores ingresados
     console.log(ingreso);
   };
 
-  useEffect(() => {
-    if (params.mail) {
-      setIngreso(params.mail);
-    }
-    // eslint-disable-next-line
-  }, []);
 
   // ENVIO DEL FORMULARIO QUE LA DECLARAMOS EN EL onSubmit DEL
   //FORM que enviara el usuario al servidor para grabarlo en la base de datos
@@ -34,29 +25,22 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      let res;
-      if (!params.mail) {
-        console.log("RES: ", ingreso);
-        res = await LoginServer.loginUsuario(ingreso);
-        console.log("RES: ", res);
-        const data = await res.json();
-        console.log("Data: ", data);
-
-        // if (data.mail !== "") {
-        //   history("/");
-        //   setIngreso(ingreso);
-        // }
+      let res = await conectUsuario(usuario);
+      const data = await res.json();
+      console.log(data);
+      if (data.id) {
+          history(`/notas/${data.id}/`);
+      } else {
+          alert("Acesso denegado");
       }
-
-      history("/");
-    } catch (error) {
+  } catch (error) {
       console.log(error);
-    }
+  }
   };
 
   return (
     <div className="col-md-6 mx-auto p-4">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off">
         <h3 className="display1 mb-3 text-left">Sign In</h3>
         <div className="mb-3">
           <label>Correo</label>
