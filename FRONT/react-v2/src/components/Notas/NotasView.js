@@ -4,24 +4,6 @@ import NotasCard from "./NotasCard";
 import * as notasServer from "../../server/notasServer";
 
 export default function NotasView() {
-  // const notaPruebas = [
-  //   {
-  //     id: 1,
-  //     title: "Pasear al gato",
-  //     description: "Se portó bien hoy",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Pasear al perro",
-  //     description: "Se portó bien hoy",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Pasear al gato 2",
-  //     description: "Se portó bien ayer",
-  //   },
-  // ];
-
   const [notas, setNotas] = useState([]);
 
   const ListNotes = async () => {
@@ -39,21 +21,18 @@ export default function NotasView() {
     ListNotes();
   }, []);
 
-  console.log(notas)
+  console.log(notas);
 
   //Condicionamos si tiene o no notas creadas
+  //y retornamos un aviso o las notas del back
   if (notas.length === 0) {
-    return (
-      <h1>HOLAS SEÑORAS</h1>  
-    );
+    return <h1>Ups, no tiene notas creadas...</h1>;
   } else {
     return (
       <>
         <div>
           {notas.map((notas) => (
-            <>
-              <NotasCard title={notas.title} description={notas.description} />
-            </>
+            <NotasCard title={notas.title} description={notas.description} />
           ))}
         </div>
       </>

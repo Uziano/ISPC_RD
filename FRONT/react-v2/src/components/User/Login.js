@@ -73,9 +73,7 @@ const Login = () => {
             Iniciar sesión
           </button>
           <hr></hr>
-          <button type="submit" className="btn btn-secondary">
-            Registrarse
-          </button>
+          <Nav.Link href="/registrarse">Soy Nuevo... Registrame!</Nav.Link>
         </div>
       </form>
     </div>

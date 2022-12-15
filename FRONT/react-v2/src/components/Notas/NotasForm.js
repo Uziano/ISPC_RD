@@ -65,7 +65,7 @@ export default function NotasForm() {
                 </Form.Text>
               </Form.Group>
 
-              {/* Fecha */}
+              {/* Fecha - Standby*/}
               {/* <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Fechas</Form.Label>
                 <Form.Control type="email" placeholder="Pasear a mi gato 🐈" />

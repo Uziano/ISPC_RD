@@ -9,9 +9,12 @@ import "bootstrap/dist/css/bootstrap.css";
 //React Routas
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Login from './components/User/Login'
+//Componentes
+import Login from "./components/User/Login";
 import LoginRegistro from "./components/User/LoginRegistro";
-// import NavBar from "./components/Navbar/NavBar";
+import Inicio from "./components/AboutUs/Inicio";
+import AboutUs from "./components/AboutUs/AboutUs";
+import Home from './components/User/Home'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,9 +24,12 @@ root.render(
       {/* <NavBar /> */}
       <div>
         <Routes>
-          <Route exact path="/" element={<App />} />
-          <Route path="/registrarse" element={<LoginRegistro />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/registrarse" element={<LoginRegistro />} />
+          <Route path="/" element={<App />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/inicio" element={<Inicio />} />
         </Routes>
       </div>
     </BrowserRouter>
