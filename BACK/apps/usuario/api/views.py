@@ -85,15 +85,16 @@ class UserDetailApiView(APIView):
 class Login(APIView):
     def get(self,request,mail,password):        
         try:
-            user = User.objects.get(mail = mail, password = password)
+            user = User.objects.filter(mail = mail, password = password).get()
         except:
             data = {
-                "message":"Mail o contraseña incorrecta"
+                "message":"Mail o contraseña incorrecta",
+                "status":""
             }
             
             return Response(
                 data = data,
-                status=status.HTTP_404_NOT_FOUND
+                status=status.HTTP_400_BAD_REQUEST
             )
             
         user_serializer = UserSerializer(user)
