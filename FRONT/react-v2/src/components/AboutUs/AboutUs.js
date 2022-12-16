@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Container, Col, Image } from "react-bootstrap";
 import NavBar from "../Navbar/NavBar";
+import Redes from "./Redes";
 
 function AboutUs() {
   return (
@@ -34,6 +35,7 @@ function AboutUs() {
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                     ullamco laboris."
                   </p>
+                  <Redes />
                 </div>
               </div>
             </Col>
@@ -56,6 +58,7 @@ function AboutUs() {
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                     ullamco laboris."
                   </p>
+                  <Redes />
                   <div className="d-flex justify-content-between align-items-center">
                     {/* <div className="btn-group">
                       <p>
