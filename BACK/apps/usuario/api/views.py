@@ -85,24 +85,26 @@ class UserDetailApiView(APIView):
 
 class LoginApiView(APIView):
     def post(self,request,username,password):   
+        print(request.data)
+        print(username)
+        print(password)
+        usuarios = authenticate(request=request, username=username, password=password)
+        print(usuarios)
         
-            usuarios = authenticate(request=request, username=username, password=password)
-            print(usuarios)
             
-                
-            if usuarios is not None:
-                usuarios_serializer = UserSerializer(usuarios)
+        if usuarios is not None:
+            usuarios_serializer = UserSerializer(usuarios)
+            
+            return Response(
+                data = usuarios_serializer.data,
+                status = status.HTTP_200_OK )  
+
+        else:
+                data = {
+                    "message":"Mail o contraseña incorrecta",
+                }
                 
                 return Response(
-                    data = usuarios_serializer.data,
-                    status = status.HTTP_200_OK )  
-
-            else:
-                    data = {
-                        "message":"Mail o contraseña incorrecta",
-                    }
-                    
-                    return Response(
-                        data = data,
-                        status=status.HTTP_400_BAD_REQUEST
-                    )
+                    data = data,
+                    status=status.HTTP_400_BAD_REQUEST
+                )

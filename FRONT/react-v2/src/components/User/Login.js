@@ -10,16 +10,14 @@ const Login = () => {
   const initialState = { username: "", password: "" };
 
   // Hooks
-  const [ingreso, setIngreso] = useState(initialState);
+  const [ingreso, setIngreso] = useState([]);
 
   const handleInputChange = (e) => {
     setIngreso({ ...ingreso, [e.target.name]: e.target.value });
-    //Muestra los valores ingresados
     console.log(ingreso);
   };
 
   // ENVIO DEL FORMULARIO QUE LA DECLARAMOS EN EL onSubmit DEL
-  //FORM que enviara el usuario al servidor para grabarlo en la base de datos
   const handleSubmit = async (e) => {
     e.preventDefault();
 
