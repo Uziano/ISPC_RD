@@ -101,7 +101,7 @@ class LoginApiView(APIView):
 
         else:
                 data = {
-                    "message":"Mail o contraseña incorrecta",
+                    "message":"Usuario o contraseña incorrecta",
                 }
                 
                 return Response(

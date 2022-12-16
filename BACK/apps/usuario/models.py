@@ -33,13 +33,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name='Usuario',
         max_length = 32,
         unique = True,)
-       
-    image = models.ImageField(
-        verbose_name='Imagen de perfil', 
-        upload_to='perfil/', 
-        max_length=255, 
-        null=True, 
-        blank = True)
     
     is_active = models.BooleanField(
         default = True)
