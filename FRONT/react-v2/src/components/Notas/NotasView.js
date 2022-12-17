@@ -21,10 +21,9 @@ export default function NotasView() {
     ListNotes();
   }, []);
 
-  console.log(notas);
+  //Mostras las notas
+  console.table(notas);
 
-  //Condicionamos si tiene o no notas creadas
-  //y retornamos un aviso o las notas del back
   if (notas.length === 0) {
     return <h1>Ups, no tiene notas creadas...</h1>;
   } else {

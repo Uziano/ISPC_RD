@@ -1,6 +1,7 @@
 import { useState } from "react";
+import Nav from "react-bootstrap/Nav";
 
-export default function FormTest2() {
+export default function LoginRegistro() {
   const [username, setUsername] = useState("");
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +38,8 @@ export default function FormTest2() {
   };
 
   return (
+    <>
+    <h1>ESTAS EN EL REGISTRO A ADAPTAR</h1>
     <div className="App">
       <form onSubmit={handleSubmit}>
         <input
@@ -59,9 +62,12 @@ export default function FormTest2() {
         />
 
         <button type="submit">Registrarse</button>
+        <hr></hr>
+        <Nav.Link href="/login">No soy nuevo... Logueame</Nav.Link>
 
         <div className="message">{message ? <p>{message}</p> : null}</div>
       </form>
     </div>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 // DEPENDENCIAS
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
 
 // COMPONENTES
 import { conectUsuario } from "../../server/LoginServer";
@@ -70,7 +71,7 @@ const Login = () => {
             Iniciar sesión
           </button>
           <hr></hr>
-          {/* <Nav.Link href="/registrarse">Soy Nuevo... Registrame!</Nav.Link> */}
+          <Nav.Link href="/registrarse">Soy Nuevo... Registrame!</Nav.Link>
         </div>
       </form>
     </div>

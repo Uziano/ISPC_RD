@@ -11,7 +11,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 //Componentes
 import Login from "./components/User/Login";
-// import LoginRegistro from "./components/User/LoginRegistro";
+import LoginRegistro from "./components/User/LoginRegistro";
 import Inicio from "./components/AboutUs/Inicio";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Home from './components/User/Home'
@@ -26,9 +26,10 @@ root.render(
       <div>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/registrarse" element={<FormTest2 />} />
+          <Route path="/registrarse" element={<LoginRegistro />} />
+          <Route path="/tests" element={<FormTest2 />} />
           <Route path="/" element={<App />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home />} /> 
           <Route path="/about" element={<AboutUs />} />
           <Route path="/inicio" element={<Inicio />} />
         </Routes>
