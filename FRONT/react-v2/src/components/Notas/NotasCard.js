@@ -1,18 +1,16 @@
-import React from 'react';
 //Este es la tarjeta NOTA 
-// import notas from '../../data/notasMock'
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function NotasCard({title, description}) {
-  // console.log(props)
   return (
     <div>
       <Card style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
-        <Button variant="primary">Hacer tarea</Button>
+        <Button variant="primary"></Button>
       </Card.Body>
     </Card>
     </div>

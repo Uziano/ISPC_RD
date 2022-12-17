@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 
 // COMPONENTES
-import { conectUsuario } from "../../server/LoginServer";
+import { LoginServer } from "../../server/LoginServer";
 
 const Login = () => {
   const history = useNavigate();
   const initialState = { username: "", password: "" };
 
   // Hooks
-  const [ingreso, setIngreso] = useState([]);
+  const [ingreso, setIngreso] = useState([initialState]);
 
   const handleInputChange = (e) => {
     setIngreso({ ...ingreso, [e.target.name]: e.target.value });
@@ -23,14 +23,9 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      let res = await conectUsuario(ingreso);
+      let res = await LoginServer(ingreso);
       const data = await res.json();
-      // console.log(data);
-      if (data.id) {
-        history(`/notas/${data.id}/`);
-      } else {
-        alert("Acesso denegado");
-      }
+      console.log(data);
     } catch (error) {
       console.log(error);
     }

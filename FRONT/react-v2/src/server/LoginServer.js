@@ -1,12 +1,18 @@
-const API_URL = "http://127.0.0.1:8000/usuario/login/username/password";
+const API_URL = "http://127.0.0.1:8000/usuario/login/";
 
-export const conectUsuario = async (usuario) => {
+export const LoginServer = async (usuario) => {
   const conectUsuario = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(usuario),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    mode: "cors",
+    body: JSON.stringify({
+      username: usuario.username,
+      password: usuario.password,
+    }),
   };
-  return await fetch(API_URL, conectUsuario);
+  return await fetch(`${API_URL}${usuario.username}/${usuario.password}`);
 };
-//Manejar datos del body linea 7
-//La URL debe corregirse agregando username y pass
+
