@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 
 // Componentes
-import { LoginServer } from "../../server/LoginServer";
+import * as LoginServer from "../../server/LoginServer";
 import NavBarLogin from "../Navbar/NavBarLogin";
 
 const Login = () => {
@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      let res = await LoginServer(ingreso);
+      let res = await LoginServer.loginUsuario(ingreso);
       const data = await res.json();
       console.log(data);
     } catch (error) {

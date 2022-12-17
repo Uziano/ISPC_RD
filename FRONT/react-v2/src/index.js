@@ -16,6 +16,7 @@ import Inicio from "./components/AboutUs/Inicio";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Home from './components/User/Home'
 import FormTest2 from './components/User/FormTest2'
+import Footer from './components/Footer/Footer'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -34,6 +35,7 @@ root.render(
           <Route path="/inicio" element={<Inicio />} />
         </Routes>
       </div>
+      <Footer/>
     </BrowserRouter>
   </>
 );

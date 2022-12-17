@@ -3,12 +3,19 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import Select from "react-select"
+
+const options_current_state = [
+  { value: "1", label: "Por hacer" },
+  { value: "2", label: "En proceso" },
+  { value: "3", label: "Finalizado" },
+];
 
 //Toma los datos de los campos para crear la nota
 export default function NotasForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [current_state, setCurrentState] = useState("");
+  const [current_state, setSelecteCurrentState] = useState("");
   const [user, setUser] = useState("");
   const [deadline, setDeadline] = useState("");
   const [message, setMessage] = useState("");
@@ -31,11 +38,12 @@ export default function NotasForm() {
           deadline: deadline,
         }),
       });
+
       let resJson = await res.json();
       if (res.status === 201) {
         setTitle("");
         setDescription("");
-        setCurrentState("");
+        setSelecteCurrentState("");
         setUser("");
         setDeadline("");
         setMessage("Nota Creada - Recargue la pagina");
@@ -46,6 +54,8 @@ export default function NotasForm() {
       console.log(err);
     }
   };
+
+  const handelSelectCurrentState = ({value}) => {console.log(value); setSelecteCurrentState(value);} 
   return (
     <form onSubmit={handleSubmit}>
       <div
@@ -58,71 +68,69 @@ export default function NotasForm() {
           </Modal.Header>
 
           <Modal.Body>
-            
-              {/* Título */}
-              <Form.Group className="mb-3" controlId="formTitulo">
-                <Form.Label>Titulo de la nota</Form.Label>
-                <Form.Control
-                  onChange={(e) => setTitle(e.target.value)}
-                  type="text"
-                  value={title}
-                  placeholder="Pasear a mi gato 🐈"
-                />
-                <Form.Text className="text-muted">
-                  Tip: Usa un nombre claro para cada nota
-                </Form.Text>
-              </Form.Group>
+            {/* Título */}
+            <Form.Group className="mb-3" controlId="formTitulo">
+              <Form.Label>Titulo de la nota</Form.Label>
+              <Form.Control
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+                value={title}
+                placeholder="Pasear a mi gato 🐈"
+              />
+              <Form.Text className="text-muted">
+                Tip: Usa un nombre claro para cada nota
+              </Form.Text>
+            </Form.Group>
 
-              {/* Descripción */}
-              <Form.Group className="mb-3" controlId="formDesc">
-                <Form.Label>Descripción</Form.Label>
-                <Form.Control
-                  onChange={(e) => setDescription(e.target.value)}
-                  type="text"
-                  value={description}
-                  placeholder="Hoy se portó bien el nene 🐈"
-                />
-                <Form.Text className="text-muted">
-                  Tip: Se conciso para una mayor claridad al leerla
-                </Form.Text>
-              </Form.Group>
+            {/* Descripción */}
+            <Form.Group className="mb-3" controlId="formDesc">
+              <Form.Label>Descripción</Form.Label>
+              <Form.Control
+                onChange={(e) => setDescription(e.target.value)}
+                type="text"
+                value={description}
+                placeholder="Hoy se portó bien el nene 🐈"
+              />
+              <Form.Text className="text-muted">
+                Tip: Se conciso para una mayor claridad al leerla
+              </Form.Text>
+            </Form.Group>
 
-              {/* Current State*/}
-              <Form.Group className="mb-3" controlId="formEstado">
-                <Form.Label>Estado</Form.Label>
-                <Form.Control
-                  onChange={(e) => setCurrentState(e.target.value)}
-                  type="text"
-                  value={current_state}
-                  placeholder="Elegí el estado de la tarea"
-                />
-                <Form.Text className="text-muted">
-                  Tip: 1 ToDo | 2 Haciendo | 3 ListoElPollo
-                </Form.Text>
-              </Form.Group>
+            {/* Current State*/}
+            <Form.Group className="mb-3" controlId="formEstado">
+              <Form.Label>Estado</Form.Label>
+              <Select
+                defaultValue={{label:'Seleccione una opción',value:current_state}}
+                id="current_state"
+                name="current_state"
+                className="form-control"
+                onChange={handelSelectCurrentState}
+                classNamePrefix="my-react-select"
+                options={options_current_state}
+              />
+            </Form.Group>
 
-              {/* Numero de Usuario - Este lo toma solo dsp*/}
-              <Form.Group className="mb-3" controlId="formUser">
-                <Form.Label>Usuario ID</Form.Label>
-                <Form.Control
-                  onChange={(e) => setUser(e.target.value)}
-                  type="number"
-                  value={user}
-                  placeholder="Esto lo lee solo despues"
-                />
-              </Form.Group>
+            {/* Numero de Usuario - Este lo toma solo dsp*/}
+            <Form.Group className="mb-3" controlId="formUser">
+              <Form.Label>Usuario ID</Form.Label>
+              <Form.Control
+                onChange={(e) => setUser(e.target.value)}
+                type="number"
+                value={user}
+                placeholder="Esto lo lee solo despues"
+              />
+            </Form.Group>
 
-              {/* DeadLine*/}
-              <Form.Group className="mb-3" controlId="formDeadline">
-                <Form.Label>Fecha Final finalezca</Form.Label>
-                <Form.Control
-                  onChange={(e) => setDeadline(e.target.value)}
-                  type="date"
-                  value={deadline}
-                  placeholder="Hoy se portó bien el nene 🐈"
-                />
-              </Form.Group>
-           
+            {/* DeadLine*/}
+            <Form.Group className="mb-3" controlId="formDeadline">
+              <Form.Label>Fecha Final finalezca</Form.Label>
+              <Form.Control
+                onChange={(e) => setDeadline(e.target.value)}
+                type="date"
+                value={deadline}
+                placeholder="Hoy se portó bien el nene 🐈"
+              />
+            </Form.Group>
           </Modal.Body>
 
           <Modal.Footer>
@@ -137,3 +145,4 @@ export default function NotasForm() {
     </form>
   );
 }
+

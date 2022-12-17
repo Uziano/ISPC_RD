@@ -47,3 +47,16 @@
   color:white;
   border-radius:10px;
 } 
+
+.bit{
+margin-left: 10px;
+}
+.titulo{
+  font-size: 55px;
+}
+.subtitulo{
+  font-size: medium;
+}
+.letra{
+  font-size: 20px;
+}

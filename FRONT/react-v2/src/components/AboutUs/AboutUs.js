@@ -59,15 +59,6 @@ function AboutUs() {
                     ullamco laboris."
                   </p>
                   <Redes />
-                  <div className="d-flex justify-content-between align-items-center">
-                    {/* <div className="btn-group">
-                      <p>
-                        <a href="ironman.html" className="btn123">
-                          Ver
-                        </a>
-                      </p>
-                    </div> */}
-                  </div>
                 </div>
               </div>
             </Col>
