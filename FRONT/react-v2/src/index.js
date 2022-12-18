@@ -37,7 +37,7 @@ root.render(
           <Route path="/inicio" element={<Inicio />} />
         </Routes>
       </div>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   </>
 );
