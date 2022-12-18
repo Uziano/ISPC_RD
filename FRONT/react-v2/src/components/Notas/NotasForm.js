@@ -20,6 +20,14 @@ export default function NotasForm() {
   const [deadline, setDeadline] = useState("");
   const [message, setMessage] = useState("");
 
+  const resetForm = () => {
+    setTitle("");
+    setDescription("");
+    setSelecteCurrentState("");
+    setUser("");
+    setDeadline("");
+  }
+
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -41,14 +49,10 @@ export default function NotasForm() {
 
       let resJson = await res.json();
       if (res.status === 201) {
-        setTitle("");
-        setDescription("");
-        setSelecteCurrentState("");
-        setUser("");
-        setDeadline("");
-        setMessage("Nota Creada - Recargue la pagina");
+        resetForm()
+        setMessage("Nota Creada");
       } else {
-        setMessage("Some error occured");
+        setMessage("Ha ocurrido un error"); 
       }
     } catch (err) {
       console.log(err);
@@ -134,7 +138,7 @@ export default function NotasForm() {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary">Cancelar</Button>
+            <Button onClick={resetForm} variant="secondary">Cancelar</Button>
             <Button type="submit" variant="primary">
               Guardar 📚
             </Button>

@@ -8,7 +8,6 @@ function Home() {
     <div className='bg-warning'>
       <NavBar />
       <NotasForm />
-      <NotasView />
     </div>
 )
 }

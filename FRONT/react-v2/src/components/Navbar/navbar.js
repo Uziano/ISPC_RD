@@ -35,6 +35,7 @@ export default function NavBar() {
                 <Nav.Link href="/inicio">Inicio</Nav.Link>
                 <Nav.Link href="/about">Nosotros</Nav.Link>
                 <Nav.Link href="/home">Agregar notas</Nav.Link>
+                <Nav.Link href="/notas">Ver notas</Nav.Link>
                 <Nav.Link href="/login">Login</Nav.Link>
               </Nav>
             </Offcanvas.Body>

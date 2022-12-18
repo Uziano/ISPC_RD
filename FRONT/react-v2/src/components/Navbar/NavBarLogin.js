@@ -12,7 +12,7 @@ function BrandExample() {
               src={require("../../assets/logo.png")}
               width="30"
               height="30"
-              className="d-inline-block align-top"
+              className="encabezado d-inline-block align-top"
             />{" "}
             Notas
           </Navbar.Brand>
