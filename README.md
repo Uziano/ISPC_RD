@@ -7,7 +7,7 @@
 4. Crear un entorno virtual en la consola con el siguiente comando: `python - venv nombre_proyecto` 
 5. Para levantar el entorno virtual utilice el siguiente comando: `.\nombre_proyecto\Scripts\activate`
 6. A continuación descargar todos los paquetes del archivo requirements.txt con el siguiente comando: `pip install -r requirements.txt`
-7. Entrar a la carpeta ***“FRONT”*** y descargue node modules con el siguiente comando: `npm install <package_name>`
+7. Entrar a la carpeta ***“FRONT/react-v2”*** y ejecute en la terminal el siguiente comando: `npm install`
 8. Levante Apache y MySQL desde Xampp
 9. Una vez levantado el Xampp, ingrese a phpMyAdmin e importe la Base de datos **notas_app.sql**
 10. Corra las migraciones desde la consola ubicado en la carpeta ***“BACK”*** con los siguientes comandos:
