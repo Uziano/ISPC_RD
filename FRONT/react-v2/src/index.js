@@ -17,7 +17,6 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import Home from './components/User/Home'
 import FormTest2 from './components/User/FormTest2'
 import Footer from './components/Footer/Footer'
-import NotasView from "./components/Notas/NotasView";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -31,9 +30,8 @@ root.render(
           <Route path="/registrarse" element={<LoginRegistro />} />
           <Route path="/tests" element={<FormTest2 />} />
           <Route path="/" element={<App />} />
-          <Route path="/about" element={<AboutUs />} />
           <Route path="/home" element={<Home />} /> 
-          <Route path="/notas" element={<NotasView />} />   
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/inicio" element={<Inicio />} />
         </Routes>
       </div>
