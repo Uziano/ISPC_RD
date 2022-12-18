@@ -38,6 +38,7 @@ export default function NotasView() {
           {Array.from(notas).map((notas) => (
             <Col>
               <NotasCard
+                id={notas.id}
                 title={notas.title}
                 description={notas.description}
                 deadline={notas.deadline}
