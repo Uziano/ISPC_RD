@@ -3,6 +3,9 @@ import { useState } from "react";
 import NotasCard from "./NotasCard";
 import * as notasServer from "../../server/notasServer";
 import NavBar from "../Navbar/NavBar";
+// import CardGroup from 'react-bootstrap/CardGroup';
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 export default function NotasView() {
   const [notas, setNotas] = useState([]);
@@ -29,13 +32,22 @@ export default function NotasView() {
     return <h1>Ups, no tiene notas creadas...</h1>;
   } else {
     return (
-      <div className='bg-warning'>
+      <div className="bg-warning">
         <NavBar />
-        <div>
-          {notas.map((notas) => (
-            <NotasCard title={notas.title} description={notas.description} />
+        <Row xs={1} md={2} className="g-8 p-4">
+          {Array.from(notas).map((notas) => (
+            <Col>
+              <NotasCard
+                id={notas.id}
+                title={notas.title}
+                description={notas.description}
+                deadline={notas.deadline}
+                beginning={notas.beginning}
+                current_state={notas.current_state}
+              />
+            </Col>
           ))}
-        </div>
+        </Row>
       </div>
     );
   }

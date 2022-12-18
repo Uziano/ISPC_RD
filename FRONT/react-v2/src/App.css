@@ -45,8 +45,15 @@
 .btn123{
   background-color: black;
   color:white;
+  border-color: black;
   border-radius:10px;
 } 
+.secondary{
+  background-color: goldenrod;
+  border-color: goldenrod;
+  color:black;
+  border-radius:10px;
+}
 
 .bit{
 margin-left: 10px;

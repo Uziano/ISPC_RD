@@ -88,6 +88,7 @@ export default function NotasForm() {
               <Form.Control
                 onChange={(e) => setDescription(e.target.value)}
                 type="text"
+                as="textarea" rows={3}  
                 value={description}
                 placeholder="Hoy se portó bien el nene 🐈"
               />
@@ -134,10 +135,10 @@ export default function NotasForm() {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary">Cancelar</Button>
-            <Button type="submit" variant="primary">
+            <button onClick={resetForm} className="secondary">Cancelar</button>
+            <button type="submit" className="btn123">
               Guardar 📚
-            </Button>
+            </button>
           </Modal.Footer>
         </Modal.Dialog>
         <div className="message">{message ? <p>{message}</p> : null}</div>
