@@ -3,16 +3,21 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
+import * as notasServer from '../../server/notasServer'
 
 
-function NotasCard({ title, description, deadline, beginning, current_state }) {
+function NotasCard({ id_nota, title, description, deadline, beginning, current_state }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
+    await notasServer.DeleteNota(id_nota);
+    handleClose()
+    alert("Recargue la página")
+  };
+
     
-  }
 
   return (
     <div>
@@ -26,7 +31,7 @@ function NotasCard({ title, description, deadline, beginning, current_state }) {
         >
           <Card.Header>Para el: {deadline}</Card.Header>
           <Card.Body>
-            <Card.Title>{title}</Card.Title>
+            <Card.Title>{title}, {id_nota}</Card.Title>
             <Card.Text>{description}</Card.Text>
           <button className="btn123" onClick={handleShow}>
               Detalles

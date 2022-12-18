@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import Select from "react-select"
+import Select from "react-select";
 
 const options_current_state = [
   { value: "1", label: "Por hacer" },
@@ -19,6 +19,14 @@ export default function NotasForm() {
   const [user, setUser] = useState("");
   const [deadline, setDeadline] = useState("");
   const [message, setMessage] = useState("");
+
+  const resetForm = () => {
+    setTitle("");
+    setDescription("");
+    setSelecteCurrentState("");
+    setUser("");
+    setDeadline("");
+  };
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,21 +49,20 @@ export default function NotasForm() {
 
       let resJson = await res.json();
       if (res.status === 201) {
-        setTitle("");
-        setDescription("");
-        setSelecteCurrentState("");
-        setUser("");
-        setDeadline("");
-        setMessage("Nota Creada - Recargue la pagina");
+        resetForm();
+        setMessage("Nota Creada");
       } else {
-        setMessage("Some error occured");
+        setMessage("Ha ocurrido un error");
       }
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handelSelectCurrentState = ({value}) => {console.log(value); setSelecteCurrentState(value);} 
+  const handelSelectCurrentState = ({ value }) => {
+    console.log(value);
+    setSelecteCurrentState(value);
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div
@@ -88,7 +95,8 @@ export default function NotasForm() {
               <Form.Control
                 onChange={(e) => setDescription(e.target.value)}
                 type="text"
-                as="textarea" rows={3}  
+                as="textarea"
+                rows={3}
                 value={description}
                 placeholder="Hoy se portó bien el nene 🐈"
               />
@@ -101,7 +109,10 @@ export default function NotasForm() {
             <Form.Group className="mb-3" controlId="formEstado">
               <Form.Label>Estado</Form.Label>
               <Select
-                defaultValue={{label:'Seleccione una opción',value:current_state}}
+                defaultValue={{
+                  label: "Seleccione una opción",
+                  value: current_state,
+                }}
                 id="current_state"
                 name="current_state"
                 className="form-control"
@@ -135,7 +146,9 @@ export default function NotasForm() {
           </Modal.Body>
 
           <Modal.Footer>
-            <button onClick={resetForm} className="secondary">Cancelar</button>
+            <button onClick={resetForm} className="secondary">
+              Cancelar
+            </button>
             <button type="submit" className="btn123">
               Guardar 📚
             </button>
@@ -143,7 +156,7 @@ export default function NotasForm() {
         </Modal.Dialog>
         <div className="message">{message ? <p>{message}</p> : null}</div>
       </div>
+        
     </form>
   );
 }
-

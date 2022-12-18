@@ -21,12 +21,15 @@ export default function NotasView() {
     }
   };
 
+
   useEffect(() => {
     ListNotes();
   }, []);
 
   //Mostras las notas
   console.table(notas);
+  
+  
 
   if (notas.length === 0) {
     return <h1>Ups, no tiene notas creadas...</h1>;
@@ -38,7 +41,7 @@ export default function NotasView() {
           {Array.from(notas).map((notas) => (
             <Col>
               <NotasCard
-                id={notas.id}
+                id_nota={notas.id}
                 title={notas.title}
                 description={notas.description}
                 deadline={notas.deadline}
