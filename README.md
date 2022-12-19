@@ -27,17 +27,13 @@ Consta de una App Full Stack con Backend y Frontend.
 + Cuando el usuario crea la nota le debe agregar una fecha de finalización y un estado *(por hacer, en proceso o finalizada)*.
 ### Documentación del Backend
 #### DER
-![Diagrama de Entidad-Relación del proyecto]
-(https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/DER.png)
+![Diagrama de Entidad-Relación del proyecto](https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/DER.png)
 #### Diagrama de Clase 
-![Diagrama de Clase del proyecto]
-(https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/diagramaDeClase.png)
+![Diagrama de Clase del proyecto](https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/diagramaDeClase.png)
 #### Modelo Relacional
-![Modelo Relacional]
-(https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/modeloRelacional.png)
+![Modelo Relacional](https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/modeloRelacional.png)
 #### Tablas vistas desde la Base de Datos
-![Tablas de la Base de Datos del proyecto]
-(https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/BD.jpg)
+![Tablas de la Base de Datos del proyecto](https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/BD.jpg)
 
 
 ### Documentación del Frontend
