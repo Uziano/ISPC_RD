@@ -37,6 +37,7 @@ BASE_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
 LOCAL_APPS = [
     'apps.usuario',
     'apps.notas',

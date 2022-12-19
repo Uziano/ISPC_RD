@@ -85,13 +85,11 @@ class UserDetailApiView(APIView):
 
 class LoginApiView(APIView):
     def post(self,request,username,password):   
-        print(request.data)
-        print(username)
-        print(password)
+        """
+        Permite verificar que el usuario exista en la Base de Datos cuando se loguea
+        """
         usuarios = authenticate(request=request, username=username, password=password)
-        print(usuarios)
-        
-            
+                
         if usuarios is not None:
             usuarios_serializer = UserSerializer(usuarios)
             

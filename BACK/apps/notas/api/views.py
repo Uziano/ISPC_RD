@@ -9,6 +9,7 @@ from apps.notas.api.serializer import NoteListSerializer, NoteSerializer
 
 class NotesApiView(APIView):
     def get(self, request):
+        """Devuleve un listado con todos las notas almacenados en la Base de Datos"""
         note = Notes.objects.all().values('id', 'title', 'description', 'beginning' , 'deadline', 'current_state' ,'user')
         notes_serializer = NoteListSerializer(note, many=True)
 
@@ -17,6 +18,7 @@ class NotesApiView(APIView):
             status = status.HTTP_200_OK )
         
     def post(self, request):
+        """Crea una nueva nota"""
         serializer = NoteSerializer(data=request.data)
 
         if serializer.is_valid():
@@ -32,7 +34,10 @@ class NotesApiView(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
 class NotesDetailApiView(APIView):
+    """Vamos a obtener, modificar o eliminar una nota a traves de su id"""
     def get(self, request, pk):
+        """Retorna un listado con todos las notas almacenados en la Base de Datos"""
+        
         note = Notes.objects.get(pk=pk)
         notes_serializer = NoteSerializer(note)
 
@@ -42,7 +47,7 @@ class NotesDetailApiView(APIView):
         )
 
     def put(self, request, pk):
-        """Modifica un registro"""
+        """Modifica una nota"""
 
         note = Notes.objects.get(pk=pk)
         serializer = NoteSerializer(note, data=request.data)
@@ -60,7 +65,7 @@ class NotesDetailApiView(APIView):
         )
 
     def delete(self, request, pk):
-        """Elimina un registro"""
+        """Elimina una nota"""
 
         note = Notes.objects.get(pk=pk)
         note.delete()

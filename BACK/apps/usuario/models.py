@@ -1,7 +1,8 @@
+# Imports
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
-
+# Create your models here.
 class UserManager(BaseUserManager):     
     def _create_user(self, username, mail, password, is_staff, is_superuser, **extra_fields):
         user = self.model(
