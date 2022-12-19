@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import NotasCard from "./NotasCard";
 import * as notasServer from "../../server/notasServer";
 import NavBar from "../Navbar/NavBar";
@@ -9,12 +9,14 @@ import Row from "react-bootstrap/Row";
 
 export default function NotasView() {
   const [notas, setNotas] = useState([]);
-
+  const params = useParams();
+  
   const ListNotes = async () => {
     try {
-      const res = await notasServer.listNotes();
+      const res = await notasServer.listNotes(params.usuario);
       const data = await res.json();
       setNotas(data);
+      console.log(data)
     } catch (error) {
     }
   };
@@ -26,7 +28,7 @@ export default function NotasView() {
   //Para mostrar por consola y controlar:
   // console.table(notas);
   
-  if (notas.length === 0) {
+  if (notas.length === undefined) {
     return (
       <div className="bg-warning">
         <NavBar />

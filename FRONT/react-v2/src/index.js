@@ -30,7 +30,7 @@ root.render(
           <Route exact path="/" element={<App />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/home" element={<Home />} /> 
-          <Route path="/notas" element={<NotasView />} />   
+          <Route path="/notas/:usuario" element={<NotasView />} />   
           <Route path="/inicio" element={<Inicio />} />
           <Route path='*' element={<NotFound />}/>
         </Routes>

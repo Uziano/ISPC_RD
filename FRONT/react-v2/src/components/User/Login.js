@@ -1,6 +1,7 @@
 // Dependencias
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
+import { Route, Redirect } from 'react-router-dom';
 import Nav from "react-bootstrap/Nav";
 
 // Componentes
@@ -8,27 +9,30 @@ import * as LoginServer from "../../server/LoginServer";
 import NavBarLogin from "../Navbar/NavBarLogin";
 
 const Login = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const initialState = { username: "", password: "" };
-
-  // Hooks
   const [ingreso, setIngreso] = useState([initialState]);
 
   const handleInputChange = (e) => {
     setIngreso({ ...ingreso, [e.target.name]: e.target.value });
-    console.log(ingreso);
+    // console.log(ingreso);
   };
 
-  // ENVIO DEL FORMULARIO QUE LA DECLARAMOS EN EL onSubmit DEL
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       let res = await LoginServer.loginUsuario(ingreso);
       const data = await res.json();
-      console.log(data);
+      
+      //id user
+      console.log(data.id);
+      if (data.id){
+        navigate(`/notas/${data.id}/`)
+      } else {
+        alert('Usuario o Contraseña Incorrectos')
+      }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
