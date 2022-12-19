@@ -14,11 +14,7 @@ function NotasCard({ id_nota, title, description, deadline, beginning, current_s
     await notasServer.DeleteNota(id_nota);
     handleClose()
     alert("Recargue la página")
-<<<<<<< HEAD
-  };   
-=======
   };
->>>>>>> 530282fd065aef85efe66ed665bc0752aa4b1309
 
   return (
     <div>
