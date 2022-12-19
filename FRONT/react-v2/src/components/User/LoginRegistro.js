@@ -10,7 +10,6 @@ export default function LoginRegistro() {
   const [username, setUsername] = useState("");
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,9 +32,9 @@ export default function LoginRegistro() {
         setUsername("");
         setMail("");
         setPassword("");
-        setMessage("Usuario creado correctamente.");
+        alert("Usuario creado correctamente.");
       } else {
-        setMessage("Some error occured");
+        alert("Hubo un error, intente nuevamente");
       }
     } catch (err) {
       console.log(err);
@@ -88,8 +87,6 @@ export default function LoginRegistro() {
             <hr></hr>
             <Nav.Link href="/login">No soy nuevo... Logueame</Nav.Link>
           </div>
-
-          <div className="message">{message ? <p>{message}</p> : null}</div>
         </form>
       </div>
     </>

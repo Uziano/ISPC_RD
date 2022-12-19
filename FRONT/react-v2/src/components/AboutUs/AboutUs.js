@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Container, Col, Image } from "react-bootstrap";
+import Footer from "../Footer/Footer";
 import NavBar from "../Navbar/NavBar";
 import Redes from "./Redes";
 
@@ -30,12 +31,16 @@ function AboutUs() {
                 <div className="card-body">
                   <h3 className="card-text"> María Candela Martínez</h3>
                   <p className="card-text">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris."
+                    Soy programadora full stack, cursando 3er año como Analista
+                    de Sistemas y aprendiendo como manejarme en proyectos en
+                    equipo
                   </p>
-                  <Redes />
+                  <Redes
+                    link1={
+                      "https://www.linkedin.com/in/mar%C3%ADa-candela-mart%C3%ADnez-21881b240/"
+                    }
+                    link2={"https://github.com/CandeMartt"}
+                  />
                 </div>
               </div>
             </Col>
@@ -53,18 +58,23 @@ function AboutUs() {
                 <div className="card-body">
                   <h2 className="card-text">Luciano Peralta Defazio</h2>
                   <p className="card-text">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris."
+                    Soy programador full stack, me manejo mas que todo en el
+                    front y estoy aprendiendo métodos nuevos para mejorar mis
+                    habilidades en back.
                   </p>
-                  <Redes />
+                  <Redes
+                    link2={"https://github.com/Uziano"}
+                    link1={
+                      "https://www.linkedin.com/in/luciano-nicolas-ram%C3%B3n-peralta-defazio-b04838192/"
+                    }
+                  />
                 </div>
               </div>
             </Col>
           </Row>
         </Container>
       </main>
+      <Footer/>
     </>
   );
 }

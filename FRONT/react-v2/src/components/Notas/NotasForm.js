@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Select from "react-select";
@@ -18,7 +17,6 @@ export default function NotasForm() {
   const [current_state, setSelecteCurrentState] = useState("");
   const [user, setUser] = useState("");
   const [deadline, setDeadline] = useState("");
-  const [message, setMessage] = useState("");
 
   const resetForm = () => {
     setTitle("");
@@ -50,9 +48,9 @@ export default function NotasForm() {
       let resJson = await res.json();
       if (res.status === 201) {
         resetForm();
-        setMessage("Nota Creada");
+        alert("Nota Creada");
       } else {
-        setMessage("Ha ocurrido un error");
+        alert("Ha ocurrido un error");
       }
     } catch (err) {
       console.log(err);
@@ -154,9 +152,7 @@ export default function NotasForm() {
             </button>
           </Modal.Footer>
         </Modal.Dialog>
-        <div className="message">{message ? <p>{message}</p> : null}</div>
       </div>
-        
     </form>
   );
 }

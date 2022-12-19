@@ -6,7 +6,7 @@ function BrandExample() {
     <>
       <Navbar bg="light">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/inicio">
           <img
               alt=""
               src={require("../../assets/logo.png")}

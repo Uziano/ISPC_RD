@@ -5,7 +5,6 @@ import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import * as notasServer from '../../server/notasServer'
 
-
 function NotasCard({ id_nota, title, description, deadline, beginning, current_state }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -17,8 +16,6 @@ function NotasCard({ id_nota, title, description, deadline, beginning, current_s
     alert("Recargue la página")
   };
 
-    
-
   return (
     <div>
       {/* COMPONENT NOTA */}
@@ -26,12 +23,12 @@ function NotasCard({ id_nota, title, description, deadline, beginning, current_s
           bg={"Dark".toLowerCase()}
           key={"Dark"}
           text={"Light".toLowerCase()}
-          style={{ width: "18rem", borderRadius:"20px"}}
+          style={{ width: "18rem", borderRadius:"20px", borderColor:"black", borderWidth:"5px"}}
           className="mb-2"
         >
           <Card.Header>Para el: {deadline}</Card.Header>
           <Card.Body>
-            <Card.Title>{title}, {id_nota}</Card.Title>
+            <Card.Title>{title}</Card.Title>
             <Card.Text>{description}</Card.Text>
           <button className="btn123" onClick={handleShow}>
               Detalles
@@ -54,9 +51,11 @@ function NotasCard({ id_nota, title, description, deadline, beginning, current_s
         </Modal.Header>
 
         <Modal.Body>
-          {description}
+          <p>{description}</p>
+          <p>Fecha de creacion: {beginning}</p>
+          <p>Fecha de límite: {deadline}</p>
+          <p>Estado: {current_state}</p>
         </Modal.Body>
-        <Modal.Body>{current_state}</Modal.Body>
 
         <Modal.Footer>
           <Button variant="danger" onClick={handleDelete}>
@@ -66,6 +65,7 @@ function NotasCard({ id_nota, title, description, deadline, beginning, current_s
         </Modal.Footer>
       </Modal>
       {/* FIN DEL DETALLES NOTAS */}
+      
     </div>
   );
 }

@@ -15,29 +15,26 @@ import LoginRegistro from "./components/User/LoginRegistro";
 import Inicio from "./components/AboutUs/Inicio";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Home from './components/User/Home'
-import FormTest2 from './components/User/FormTest2'
 import Footer from './components/Footer/Footer'
 import NotasView from "./components/Notas/NotasView";
+import NotFound from "./components/NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <BrowserRouter>
-      {/* Lo que pongamos aca va para todas las rutas */}
-      {/* <NavBar /> */}
       <div>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/registrarse" element={<LoginRegistro />} />
-          <Route path="/tests" element={<FormTest2 />} />
-          <Route path="/" element={<App />} />
+          <Route exact path="/" element={<App />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/home" element={<Home />} /> 
           <Route path="/notas" element={<NotasView />} />   
           <Route path="/inicio" element={<Inicio />} />
+          <Route path='*' element={<NotFound />}/>
         </Routes>
       </div>
-      <Footer />
     </BrowserRouter>
   </>
 );

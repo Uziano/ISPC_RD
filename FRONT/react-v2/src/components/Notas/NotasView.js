@@ -3,7 +3,7 @@ import { useState } from "react";
 import NotasCard from "./NotasCard";
 import * as notasServer from "../../server/notasServer";
 import NavBar from "../Navbar/NavBar";
-// import CardGroup from 'react-bootstrap/CardGroup';
+import Footer from "../Footer/Footer";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
@@ -13,26 +13,26 @@ export default function NotasView() {
   const ListNotes = async () => {
     try {
       const res = await notasServer.listNotes();
-      // console.log(res);
       const data = await res.json();
       setNotas(data);
     } catch (error) {
-      // console.log(error);
     }
   };
-
 
   useEffect(() => {
     ListNotes();
   }, []);
 
-  //Mostras las notas
-  console.table(notas);
+  //Para mostrar por consola y controlar:
+  // console.table(notas);
   
-  
-
   if (notas.length === 0) {
-    return <h1>Ups, no tiene notas creadas...</h1>;
+    return (
+      <div className="bg-warning">
+        <NavBar />
+        <h1>Ups, no tiene notas creadas...</h1>;
+      </div>
+    )
   } else {
     return (
       <div className="bg-warning">
@@ -51,6 +51,7 @@ export default function NotasView() {
             </Col>
           ))}
         </Row>
+        <Footer />
       </div>
     );
   }
