@@ -40,8 +40,7 @@ Consta de una App Full Stack con Backend y Frontend.
 (https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/BD.jpg)
 
 
-
-
-
+### Documentación del Frontend
+![MocksUp de posibles diseños](https://github.com/Uziano/ISPC_RD/tree/main/FRONT/react-v2/src/assets/posibleDiseño.png)
 
 
