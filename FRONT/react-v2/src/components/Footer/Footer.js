@@ -7,8 +7,8 @@ function Footer() {
             <div className="container">
             <p className="mb-1">© 2022 Company, Inc</p>
                 <p clasName="float-end mb-1">
-                <a href="#" >Back to top
-                </a></p>
+                <a href="#" >Back to top</a>
+            </p>
             </div>
         </footer>
     );

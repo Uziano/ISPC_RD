@@ -9,7 +9,7 @@ export default function NavBar() {
     <>
       <Navbar variant="dark" className="navBg">
         <Container fluid>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/inicio">
             <img
               alt=""
               src={require("../../assets/logo.png")}
